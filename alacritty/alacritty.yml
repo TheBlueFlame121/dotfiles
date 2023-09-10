@@ -1,0 +1,81 @@
+env:
+  TERM: xterm-256color
+
+window:
+  opacity: 0.90
+  
+  dimensions:
+    columns: 95
+    lines: 50 
+
+  position:
+    x: 720
+    y: 0
+
+  padding:
+    x: 6
+    y: 6
+
+
+  title: Alacritty
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 3000
+
+font:
+  normal:
+    family: FiraCode Nerd Font
+
+    style: Retina
+  bold:
+    style: Retina
+  italic:
+    style: Italic
+  bold_italic:
+    style: Bold Italic
+
+  size: 12.0
+
+  offset:
+    x: 0
+    y: 0
+      
+colors:
+  # Default colors
+  primary:
+    background: '0x1d1e20'
+    foreground: '0xf0f0f0'
+
+  # Normal colors
+  normal:
+    black:   '0x1f1f20'
+    red:     '0xfb055a'
+    green:   '0x26ffd4'
+    yellow:  '0xfdaa5a'
+    blue:    '0x5c9fff'
+    magenta: '0xfc59a6'
+    cyan:    '0x26ffd4'
+    white:   '0xf0f0f0'
+
+  # Bright colors
+  bright:
+    black:   '0x5c6370'
+    red:     '0xfb055a'
+    green:   '0x26ffd4'
+    yellow:  '0xfebe7e'
+    blue:    '0x55adff'
+    magenta: '0xfd95d0'
+    cyan:    '0x26ffd4'
+    white:   '0xf0f0f0'
+
+# import:
+#   - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+
+cursor:
+  style: Underline 
+
+live_config_reload: true
