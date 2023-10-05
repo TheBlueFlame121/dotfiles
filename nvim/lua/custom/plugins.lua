@@ -1,13 +1,5 @@
 local plugins = {
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = {"cpp", "c", "python", "rust"},
-    event = "VeryLazy",
-    opts = function ()
-      return require "custom.configs.null-ls"
-    end
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -19,31 +11,39 @@ local plugins = {
     opts = {
       ensure_installed = {
         "lua-language-server",
-        "clangd",       -- c/cpp lsp
+        "stylua", -- lua formatting
+        "clangd", -- c/cpp lsp
         "clang-format", -- c/cpp format
-        "pyright",      -- python lsp
-        "ruff",         -- python linter
-        "black",        -- python formatter
-        "pylama",       -- python linter
-      }
-    }
+        "pyright", -- python lsp
+        "ruff", -- python linter
+        "black", -- python formatter
+        "pylama", -- python linter
+      },
+    },
   },
   {
-    "folke/trouble.nvim",
-    cmd = "Trouble",
+    "mfussenegger/nvim-lint",
     config = function()
-      require("trouble").setup()
+      require "custom.configs.nvim-lint"
+    end,
+  },
+  {
+    "stevearc/conform.nvim",
+    event = "VimEnter",
+    config = function()
+      require "custom.configs.conform"
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "lua",
         "c",
         "cpp",
         "python",
-      }
-    }
+      },
+    },
   },
   {
     "hrsh7th/nvim-cmp",
@@ -51,6 +51,54 @@ local plugins = {
       local M = require "plugins.configs.cmp"
       M.completion.completeopt = "menu,menuone,noselect" -- tab selects first option
       return M
+    end,
+    dependencies = {
+      -- snippet plugin
+      "L3MON4D3/LuaSnip",
+      config = function(_, opts)
+        -- load default luasnip config
+        require("plugins.configs.others").luasnip(opts)
+        require("luasnip/loaders/from_vscode").lazy_load()
+      end,
+    },
+  },
+  {
+    "NvChad/nvcommunity",
+    { import = "nvcommunity.diagnostics.trouble" },
+    { import = "nvcommunity.editor.biscuits" },
+    { import = "nvcommunity.editor.rainbowdelimiters" },
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    event = "VimEnter",
+    dependencies = {
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        event = "BufAdd",
+        config = function()
+          require("custom.configs.ufo").statuscol()
+        end,
+      },
+    },
+    config = function()
+      require("custom.configs.ufo").ufo()
+    end,
+  },
+  {
+    "anuvyklack/pretty-fold.nvim",
+    event = "VimEnter",
+    dependencies = {
+      "anuvyklack/keymap-amend.nvim",
+      {
+        "anuvyklack/fold-preview.nvim",
+        opts = {
+          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        },
+      },
+    },
+    config = function()
+      require "custom.configs.pretty-fold"
     end,
   },
 }
