@@ -67,6 +67,7 @@ local plugins = {
     { import = "nvcommunity.diagnostics.trouble" },
     { import = "nvcommunity.editor.biscuits" },
     { import = "nvcommunity.editor.rainbowdelimiters" },
+    { import = "nvcommunity.git.lazygit" },
   },
   {
     "kevinhwang91/nvim-ufo",

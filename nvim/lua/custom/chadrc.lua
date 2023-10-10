@@ -1,37 +1,37 @@
----@type ChadrcConfig 
+---@type ChadrcConfig
 local M = {}
 -- M.ui = {theme = 'nightfox'}
 M.ui = {
-theme = 'nightfox',
-transparency = false,
+  theme = "nightfox",
+  transparency = false,
 
-hl_override = {
-  NvDashAscii = {
-    fg = "blue",
-    bg = "none",
+  hl_override = {
+    NvDashAscii = {
+      fg = "blue",
+      bg = "none",
+    },
+    NvDashButtons = {
+      bg = "none",
+      fg = "light_grey",
+    },
   },
-  NvDashButtons = {
-    bg = "none",
-    fg = "light_grey",
-  },
-},
 
-nvdash = {
-  load_on_startup = true,
+  nvdash = {
+    load_on_startup = true,
 
-  header = {
-    "                             ",
-    "     ▄▄         ▄ ▄▄▄▄▄▄▄    ",
-    "   ▄▀███▄     ▄██ █████▀     ",
-    "   ██▄▀███▄   ███            ",
-    "   ███  ▀███▄ ███            ",
-    "   ███    ▀██ ███            ",
-    "   ███      ▀ ███            ",
-    "   ▀██ █████▄▀█▀▄██████▄     ",
-    "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀    ",
-    "                             ",
+    header = {
+      "                             ",
+      "     ▄▄         ▄ ▄▄▄▄▄▄▄    ",
+      "   ▄▀███▄     ▄██ █████▀     ",
+      "   ██▄▀███▄   ███            ",
+      "   ███  ▀███▄ ███            ",
+      "   ███    ▀██ ███            ",
+      "   ███      ▀ ███            ",
+      "   ▀██ █████▄▀█▀▄██████▄     ",
+      "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀    ",
+      "                             ",
+    },
   },
-},
 }
 
 M.plugins = "custom.plugins"
