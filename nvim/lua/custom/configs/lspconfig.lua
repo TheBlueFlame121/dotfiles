@@ -4,6 +4,15 @@ local capabilities = base.capabilities
 capabilities.offsetEncoding = "utf-8"
 
 local lspconfig = require "lspconfig"
+local servers = { "pyright", "texlab", "ltex" }
+
+-- default config for servers
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
 
 lspconfig.clangd.setup {
   cmd = {
@@ -24,10 +33,4 @@ lspconfig.clangd.setup {
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
-}
-
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "python" },
 }

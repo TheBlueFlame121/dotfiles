@@ -1,6 +1,8 @@
-set guioptions =s
+set guioptions none
+set synctex true
 
 set font "FiraCode Nerd Font 10"
+set zoom-center true
 
 # NORD THEME
 # Changed bg to match nightfox from nvchad

@@ -18,6 +18,8 @@ local plugins = {
         "ruff", -- python linter
         "black", -- python formatter
         "pylama", -- python linter
+        "ltex-ls", -- Tex/Markdown/Text
+        "texlab", --Tex/Markdown
       },
     },
   },
@@ -43,6 +45,10 @@ local plugins = {
         "cpp",
         "python",
       },
+      ignore_install = {
+        "latex", -- TS latex breaks vimtex
+      },
+      highlight = { disable = { "latex" } },
     },
   },
   {
@@ -100,6 +106,17 @@ local plugins = {
     },
     config = function()
       require "custom.configs.pretty-fold"
+    end,
+  },
+  {
+    "lervag/vimtex",
+    ft = "tex",
+    init = function()
+      vim.g.vimtex_view_general_viewer = "zathura"
+      vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_quickfix_enabled = 1
+      vim.g.vimtex_syntax_enabled = 1
+      vim.g.vimtex_quickfix_mode = 0
     end,
   },
 }
